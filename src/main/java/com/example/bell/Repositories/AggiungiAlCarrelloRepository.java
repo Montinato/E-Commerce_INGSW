@@ -11,7 +11,9 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface AggiungiAlCarrelloRepository extends JpaRepository<AggiungiAlCarrello, Integer> {
+public interface AggiungiAlCarrelloRepository extends JpaRepository<AggiungiAlCarrello, Integer>
+{
+
     List<AggiungiAlCarrello> findAggiungiAlCarrelloByProdottiByIdProdottoId(int prodId);
     List<AggiungiAlCarrello> findAggiungiAlCarrelloByUtentiByIdUtenteId(int userId);
     void removeAggiungiAlCarrelloByUtentiByIdUtenteId(int userId);
@@ -24,5 +26,8 @@ public interface AggiungiAlCarrelloRepository extends JpaRepository<AggiungiAlCa
 
     @Query("select sum(a.prezzo) from AggiungiAlCarrello a where a.utentiByIdUtente.id=:user_id")
     double getTotalAmountByUserId(@Param("user_id") int user_id);
+
+
+    // Hybernate si occuperà di creare i metodi che possono servire al controller
 
 }

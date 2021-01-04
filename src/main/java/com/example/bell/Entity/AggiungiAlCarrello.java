@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
 
+// QUESTO E' IL MODEL
+
 @Entity
 @Table(name = "aggiungi_al_carrello", schema = "public", catalog = "postgres")
 public class AggiungiAlCarrello {

@@ -26,6 +26,8 @@ public class AggiungiAlCarrelloService
     @Autowired
     CheckoutRepository cr;
 
+
+
     @Transactional(readOnly = false)
     public void aggiungiCarrello(AggiungiAlCarrello a) {
         ar.save(a);

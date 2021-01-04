@@ -13,10 +13,11 @@ import javax.validation.Valid;
 import java.rmi.activation.ActivationGroupID;
 import java.util.List;
 
+// Serve alla classe principale per poter caricare il componente in Run Time in modo automatico
+
 @RestController
 @RequestMapping("/carrello")
 @CrossOrigin("http://localhost:8080")
-
 public class AggiungiAlCarrelloController
 {
 
@@ -42,8 +43,6 @@ public class AggiungiAlCarrelloController
         obj.setUtentiByIdUtente(a.getUtentiByIdUtente());
         as.aggiungiCarrello(obj);
     }
-
-
 
     @PostMapping("/modificaQuantità")
     public void modificaQuantita(@RequestBody Integer id, Double qty){
@@ -76,8 +75,5 @@ public class AggiungiAlCarrelloController
     public AggiungiAlCarrello cercaCarrello(@RequestBody int id){
          return as.cercaCarrelloById(id);
     }
-
-
-
 
 }

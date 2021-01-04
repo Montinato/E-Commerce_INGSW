@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ordini")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:8080")
 public class OrdiniController {
 
     @Autowired

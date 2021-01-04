@@ -13,13 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/prodotti")
-@CrossOrigin("http://localhost:4200")
-public class ProdottiController {
+@CrossOrigin("http://localhost:8080")
+public class ProdottiController
+{
 
     @Autowired
     ProdottiService prodottiService;
 
-    @CrossOrigin("http://localhost:4200")
+    @CrossOrigin("http://localhost:8080")
     @PostMapping("/addProdotto")
     public ResponseEntity aggiungiProdotto(@RequestBody /*@Valid */Prodotti p){
         prodottiService.aggiungiProdotto(p);
@@ -31,15 +32,15 @@ public class ProdottiController {
         return prodottiService.listaProdotti();
     }
 
-    @CrossOrigin("http://localhost:4200")
+    @CrossOrigin("http://localhost:8080")
     @PostMapping("/modificaProdotto")
     public void modificaProdotto(String titolo, String immagine, String descrizione,double prezzo,Integer quantita, String marca){
         prodottiService.modificaProdotto(titolo, immagine, descrizione,  prezzo, quantita,  marca );
 
     }
 
-    @GetMapping("/prodottoPerId/{id}")
-    @CrossOrigin("http://localhost:4200")
+    @GetMapping("/prodottoPerId/{id}") // Recupero il singolo elemento passando l'id cosi': {id}
+    @CrossOrigin("http://localhost:8080")
     public ResponseEntity findById(@PathVariable  int id) throws Exception {
         Prodotti tmp =prodottiService.findById(id);
         if(tmp == null) {
@@ -49,7 +50,7 @@ public class ProdottiController {
     }
 
     @DeleteMapping("/eliminaProdotto/{id}")
-    @CrossOrigin("http://localhost:4200")
+    @CrossOrigin("http://localhost:8080")
     public void deleteById(@PathVariable int id){
         prodottiService.deleteById(id);
     }
